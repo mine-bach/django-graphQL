@@ -1,0 +1,57 @@
+@mixin flex() {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+@mixin flexDirection($orient, $WebkitDirection, $direction) {
+  -webkit-box-orient: $orient !important;
+  -webkit-box-direction: $WebkitDirection !important;
+  -ms-flex-direction: $direction !important;
+  flex-direction: $direction !important;
+}
+
+@mixin flexWrap($wrap) {
+  -ms-flex-wrap: $wrap !important;
+  flex-wrap: $wrap !important;
+}
+
+@mixin flexAlign($position) {
+  -webkit-box-align: $position !important;
+  -ms-flex-align: $position !important;
+  -ms-grid-row-align: $position !important;
+  align-items: $position !important;
+}
+
+@mixin flexJustify($preJustify, $justify) {
+  -webkit-box-pack: $preJustify !important;
+  -ms-flex-pack: $preJustify !important;
+  justify-content: $justify !important;
+}
+
+
+@mixin boxShadow($position, $x, $y, $blur, $spread: '0', $color:$grey) {
+  @if($position !=outset) {
+    -webkit-box-shadow:$position $x $y $blur #{$spread} $color;
+    -moz-box-shadow:$position $x $y $blur #{$spread} $color;
+    -o-box-shadow:$position $x $y $blur #{$spread} $color;
+    box-shadow:$position $x $y $blur #{$spread} $color;
+  }
+  @if ($position==outset) {
+    -webkit-box-shadow:$x $y $blur #{$spread} $color;
+    -moz-box-shadow:$x $y $blur #{$spread} $color;
+    -o-box-shadow:$x $y $blur #{$spread} $color;
+    box-shadow:$x $y $blur #{$spread} $color;
+  }
+}
+
+
+@mixin border($size:'1px', $type:'solid', $color:$grey) {
+  border: #{$size} #{$type} $color;
+}
+
+@mixin borderRadius($value :'3px') {
+  -webkit-border-radius: #{$value};
+  -moz-border-radius: #{$value};
+  border-radius: #{$value};
+}

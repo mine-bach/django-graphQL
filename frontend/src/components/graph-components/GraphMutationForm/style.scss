@@ -1,0 +1,50 @@
+@import 'src/styles/main.scss';
+
+.form-validation-component {
+        width:100%;
+    .general-error-message {
+        border: 1px solid red;
+        color: red;
+        padding: 15px;
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        p {
+            margin: 0
+        }
+    }
+}
+
+.form-send-message{
+    position:relative;
+    .form-send-container-message{
+        position:absolute;
+        background:rgba(255,255,255,0.9);
+        width:100%;
+        z-index:10;
+        height:100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        > div{
+            padding:20px;
+            text-align:center;
+            figure{
+                margin:0 auto 20px;
+                width:250px;
+                img{
+                    width:100%;
+                }
+            }
+            p{
+                font-size:30px;
+                font-weight:600;
+                color:$blue;
+                text-align:center;
+            }
+            .thanks{
+                font-size:20px;
+            }
+        }
+    }
+}

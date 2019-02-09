@@ -1,0 +1,23 @@
+/* font weight */
+$fontLight: 300;
+$fontRegular: 400;
+$fontBold: 600;
+$fontBlack: 900;
+
+/* font-size */
+$font10: 10px;
+$font12: 12px;
+$font14: 14px;
+$font16: 16px;
+$font18: 18px;
+$font20: 20px;
+$font22: 22px;
+$font25: 25px;
+$font30: 30px;
+$font35: 35px;
+$font50: 50px;
+
+$fontItalic: italic;
+.font-italic {
+  font-style: $fontItalic;
+}

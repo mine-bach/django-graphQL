@@ -1,0 +1,11 @@
+<FormValidation class="form-validation-component" :form="form" @submit="save" :errors="errors" :validators="validators" :validate-on-change="validateOnChange">
+  <template slot-scope="props">
+    <div class="general-error-message" v-if="!!props.errors.__all__">
+      <p v-for="error, index in props.errors.__all__" :key="index">{{error.message}}</p>
+    </div>
+    <div class="main-container form-send-message">
+      <Loading v-if="loading"></Loading>
+      <slot :errors="props.errors" :is-valid="props.isValid"></slot>
+    </div>
+  </template>
+</FormValidation>

@@ -1,0 +1,32 @@
+<v-app id="app">
+  <my-buttons-container>
+    <my-button text="simple" @click="log"></my-button>
+    <my-confirm-button @confirm="log">confirm</my-confirm-button>
+  </my-buttons-container>
+
+  ************************
+
+  <my-buttons-container>
+    <my-button :to="{name: homeLink}">Home</my-button>
+    <my-button :to="{name: aboutLink}">About</my-button>
+  </my-buttons-container>
+
+  <my-buttons-container>
+    <my-button :to="{name: userSignUpLink}">Inscription</my-button>
+    <my-button :to="{name: userRegisterLink}">Connection</my-button>
+  </my-buttons-container>
+
+  <my-buttons-container>
+    <my-button :to="{name: demoViewLink}">Demo-View</my-button>
+    <my-button :to="{name: demoQueryLink}">Demo-Query</my-button>
+    <my-button :to="{name: demoMutationLink}">Demo-Mutation</my-button>
+  </my-buttons-container>
+
+
+  ************************
+
+  <router-view></router-view>
+
+  <div>
+
+</v-app>

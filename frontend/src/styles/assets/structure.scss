@@ -1,0 +1,23 @@
+@import 'src/styles/assets/mixin.scss';
+/* width */
+$width100: 100%;
+$width50: 50%;
+$width33: 33.33%;
+$width25: 25%;
+$width20: 20%;
+$width15: 15,6666%;
+$width10: 10%;
+
+/* positionning */
+$absolute: absolute;
+$relative: relative;
+$fixed: fixed;
+
+%container {
+  @include flex();
+  @include flexDirection(vertical, normal, column);
+  @include flexJustify(left, flex-start);
+  @include flexAlign(flex-start);
+  padding: 20px;
+  position:relative;
+}

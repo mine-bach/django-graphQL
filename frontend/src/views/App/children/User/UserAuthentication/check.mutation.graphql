@@ -1,0 +1,5 @@
+mutation UserAuthenticationFormCheck($input: UserAuthenticationInput!) {
+  checkUserAuthentication(input: $input)  {
+    errors
+  }
+}

@@ -1,0 +1,83 @@
+<GraphMutationForm @success="formSaved" :mutation="mutation" :variables="variables" :form="form">
+  <template slot-scope="props">
+    <div class="main-container">
+      <div class="container-full">
+        <my-form-field
+          v-model="form.firstName"
+          type="text"
+          required
+          label="Prénom"
+          name="firstName"
+          :errors="props.errors.firstName">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.lastName"
+          type="text"
+          required
+          label="Nom"
+          name="lastName"
+          :errors="props.errors.lastName">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.phone"
+          type="mobile"
+          label="Téléphone"
+          :errors="props.errors.phone">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.email"
+          type="email"
+          label="e-mail"
+          :errors="props.errors.email">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.address"
+          type="text"
+          required
+          label="Adresse" 
+          name="address"
+          :errors="props.errors.address">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.companyName"
+          type="text"
+          required
+          label="Nom d'entreprise" 
+          name="company_name"
+          :errors="props.errors.companyName">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.siret"
+          type="text"
+          label="N° SIRET" 
+          name="text"
+          :errors="props.errors.siret">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.password"
+          type="password"
+          help-text="mon help-text"
+          label="mot de passe"
+          :errors="props.errors.password">
+        </my-form-field>
+
+        <my-form-field
+          v-model="form.passwordConfirmation"
+          type="password"
+          help-text="mon help-text"
+          label="confirmation du mot de passe"
+          :errors="props.errors.passwordConfirmation">
+        </my-form-field>    
+
+        <my-button type="submit" text="Enregistrer"></my-button>
+      </div>
+    </div>
+  </template>
+</GraphMutationForm>

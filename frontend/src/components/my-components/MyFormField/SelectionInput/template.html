@@ -1,0 +1,40 @@
+<div v-if="isToggle" :class="[innerClass, {'disabled': disabled}]" class="selection-input toggle" :name="name">
+  <div v-for="choice in choices" :key="choice.name"
+    class="toggle-value-content"
+    :class="{'selected': choice.value === value}"
+    @click="onToggleValue(choice.value)">
+    {{choice.text}}
+  </div>
+</div>
+<div v-else-if="isSwitch" :class="[innerClass, {'disabled': disabled}]" class="selection-input toggle" :name="name">
+    <div @click="onToggleValue(true)" :class="{'selected': value}" class="toggle-value-content capitalize">Oui</div>
+    <div @click="onToggleValue(false)" :class="{'selected': !value}" class="toggle-value-content capitalize">Non</div>
+</div>
+<multi-select v-else-if="isSelection"
+  class="selection-input selection"
+  :class="innerClass"
+  :value="selection"
+  :name="name"
+  :required="required"
+  :group-label="selectionGroupLabel"
+  @input="onSelectionInput"
+  :group-values="selectionGroupValues"
+  :placeholder="placeholder"
+  :disabled="disabled"
+  track-by="value"
+  label="text"
+  :options="choices"></multi-select>
+<div v-else class="selection-input radio" :class="innerClass" :name="name">
+  <div v-for="choice in choices" :key="choice.name">
+    <input
+      type="radio"
+      :id="choice.name"
+      :disabled="disabled"
+      :name="name"
+      :checked="choice.value=== value"
+      :value="choice.value"
+      @change="onRadioInput">
+    </input>
+    <label :for="choice.name">{{choice.text}}</label>
+  </div>
+</div>

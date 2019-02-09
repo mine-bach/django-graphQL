@@ -1,0 +1,24 @@
+@import 'src/styles/assets/font.scss';
+
+/* Général */
+* {font-family: 'Montserrat', 'Lato', sans-serif;}
+a {text-decoration: none;}
+
+/* font weight */
+.font-light {font-weight: $fontLight !important;}
+.font-regular {font-weight: $fontRegular !important;}
+.font-bold {font-weight: $fontBold !important;}
+.font-black {font-weight: $fontBlack !important;}
+
+/* font size */
+.font10 {font-size: $font10 !important;}
+.font12 {font-size: $font12 !important;}
+.font14 {font-size: $font14 !important;}
+.font16 {font-size: $font16 !important;}
+.font18 {font-size: $font18 !important;}
+.font20 {font-size: $font20 !important;}
+.font22 {font-size: $font22 !important;}
+.font25 {font-size: $font25 !important;}
+.font30 {font-size: $font30 !important;}
+.font35 {font-size: $font35 !important;}
+.font50 {font-size: $font50 !important;}

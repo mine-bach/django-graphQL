@@ -1,0 +1,71 @@
+@import 'src/styles/main.scss';
+.date-input-component {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  .dialog__container {
+    right: 0px;
+    position: absolute;
+    top: 6px;
+    i {
+      color: $blue !important;
+    }
+  }
+  .date-input-icon {
+    color: #ccc !important;
+  }
+  input {
+    width: 50%;
+    margin-top: 0 !important;
+  }
+  .showdate {
+    width: 50%;
+    min-width: 50%;
+    flex-shrink: 0;
+    padding-left: 20px;
+    color: $orange;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+}
+
+.v-dialog{
+  box-shadow: none !important;
+}
+.picker {
+  .picker__title {
+    background: $blue !important;
+  }
+}
+.picker--date {
+  .picker--date__table {
+    .btn.btn--date-picker {
+      &.btn--active:after {
+        background: $orange !important;
+      }
+      &.btn--outline {
+        border: 1px solid $orange !important;
+      }
+      &:hover:after {
+        background: $orange !important;
+      }
+    }
+  }
+}
+
+// .dashboard-app-component.application--light {
+//   .picker {
+//     .picker__title {
+//       background: $pastelDarkerBlueGrey !important;
+//     }
+//   }
+//   .picker--date {
+//     .picker--date__table {
+//       .btn.btn--date-picker.btn--active:after {
+//         background: $orange !important;
+//       }
+//     }
+//   }
+// }

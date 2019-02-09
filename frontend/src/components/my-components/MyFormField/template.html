@@ -1,0 +1,61 @@
+<div class="my-form-field-component">
+  <div v-if="innerLabel" class="flex blue-color mr-3 font-bold" :class="{'main-color error-color': error}">
+    <div class="container-field-label">
+      <v-icon v-if="labelIcon" class="field-label-icon">{{labelIcon}}</v-icon>
+      <span>{{innerLabel}}</span>
+    </div>
+    <v-tooltip v-if="required" class="required-tooltip" right>
+      <v-btn tabindex="-1" class="required-btn" flat color="primary" slot="activator">
+        <span class="blue-color">*</span>
+      </v-btn>
+      <span>Champ obligatoire</span>
+    </v-tooltip>
+    <v-tooltip v-if="helpTooltipText" top>
+      <v-btn icon slot="activator" class="help-tooltip-btn">
+        <v-icon class="mr-2">info</v-icon>
+      </v-btn>
+      <span>{{helpTooltipText}}</span>
+    </v-tooltip>
+  </div>
+  <div :class="[{'input-error-icon': !!error, 'input-helptext-icon' : !!helpText, 'field-disabled' : disabled}, iconPositionClassName]" class="container-input-field">
+    <slot>
+      <DateInput v-if="isDate" :disabled="disabled" :name="name" :required="required" :show-picker="showDatePicker" :show-result="showDateResult" :value="val" @on-error="onError" @input="valueChanged"></DateInput>
+      <DateTimeInput v-else-if="isDateTime" :disabled="disabled" :name="name" :show-picker="showDatePicker" :required="required" :value="val" @on-error="onError" @input="valueChanged"></DateTimeInput>
+      <selection-input v-else-if="isSwitch" type="switch" :name="name" :value="value" :nullable="nullable" :disabled="disabled" @input="valueChanged"></selection-input>
+      <v-checkbox v-else-if="isCheckbox" color="deep-orange lighten-1" :name="name" value :disabled="disabled" :input-value="val" @change="valueChanged"></v-checkbox>
+      <selection-input v-else-if="isRadio" type="radio" :name="name" :value="value" :choices="choices" :disabled="disabled" @input="valueChanged"></selection-input>
+      <div v-else-if="isToggle" class="toggle">
+        <selection-input type="toggle" :name="name" :value="value" :nullable="nullable" :choices="choices" :disabled="disabled" @input="valueChanged"></selection-input>
+      </div>
+      <selection-input v-else-if="isSelection" type="selection" :name="name" :value="value" :choices="choices" :disabled="disabled" @input="valueChanged"></selection-input>
+      <div v-else-if="isTextarea">
+        <textarea :value="val" @change="inputChanged" :name="name" :placeholder="innerPlaceholder" :disabled="disabled"
+          :required="required" class="textarea-custom mt-2"></textarea>
+      </div>
+      <div v-else-if="isHtml" class="container-html-editor">
+        <HtmlEditor :value="val" :toolbar-type="toolbarType" @input="valueChanged" :placeholder="innerPlaceholder" :disabled="disabled" :required="required"></HtmlEditor>
+      </div>
+      <div v-else :class="{'container-primary': primary}">
+        <input :value="val" :disabled="disabled" :required="required" @input="inputChanged" @change="onChange" @focus="onFocus" @blur="onBlur"
+          :placeholder="innerPlaceholder" :name="name" :min="min" :max="max" :maxlength="maxlength" :step="step" :type="isMobile && 'text' || type"
+          class="custom-input mt-2"></input>
+      </div>
+    </slot>
+    <span v-if="suffix" class="suffix-block grey--text text--darken-1">{{suffix}}</span>
+    <span v-else-if="icon" class="right-icon-block" :class="{disabled: disabled}">
+      <slot name="icon" >
+        <v-icon v-if="isEmailIcon">email</v-icon>
+        <v-icon v-if="isMobileIcon">smartphone</v-icon>
+      </slot>
+    </span>
+  </div>
+  <div v-if="suggestion" class="email-suggestion">
+    <a @click=useSuggestion(suggestion)>Ne voulez-vous pas plutôt dire {{suggestion}} ?</a>
+  </div>
+  <div v-if="error.message" class="custom-error">
+    <span class="main-color error-color">{{error.message}}</span>
+  </div>
+  <div v-else-if="helpText" class="custom-helptext">
+    <span class="blue-color">{{helpText}}</span>
+  </div>
+</div>

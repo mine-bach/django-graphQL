@@ -1,0 +1,6 @@
+query UserQuery {
+  users {
+    id
+    username
+  }
+}

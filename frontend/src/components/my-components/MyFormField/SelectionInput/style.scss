@@ -1,0 +1,50 @@
+@import 'src/styles/main.scss';
+
+.selection-input.toggle {
+  display: flex;
+  font-size: 16px;
+  color: $blue;
+  cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
+  font-weight: 300;
+  margin-top: 10px;
+  border: 1px solid $blue;
+  .toggle-value-content {
+    border-right: 1px solid $lightblue;
+    padding: 10px 20px;
+    background: #fff;
+    transition: 0.3s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.selected {
+      background: $lightblue;
+      font-weight: 600;
+    }
+    &:hover {
+      background: rgb(249, 250, 252);
+    }
+  }
+  &:last-child {
+    .toggle-value-content {
+      border-right: none;
+    }
+  }
+  &.disabled {
+    border-color: rgba(0, 0, 0, .14);
+    cursor: default;
+    color: rgba(0, 0, 0, .35);
+    .toggle-value-content {
+      background-color: rgba(0, 0, 0, .06) !important;
+      &.selected {
+        background-color: rgba(0, 0, 0, .12) !important;
+        font-weight: 600;
+      }
+    }
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+}

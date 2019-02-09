@@ -1,0 +1,11 @@
+<v-btn class="my-button-component my-button-element elevation-0" 
+  :disabled="disabled"
+  :class="colorClass"
+  :href="href"
+  :target="target"
+  :to="to"
+  :type="type"
+  @click.native="onClick">
+  <span v-if="text">{{text}}</span>
+  <slot v-else></slot>
+</v-btn>

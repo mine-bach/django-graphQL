@@ -1,0 +1,28 @@
+<div class="date-input-component">
+  <input
+    type="text"
+    :required="required"
+    :name="name"
+    :disabled="disabled"
+    placeholder="JJ/MM/AAAA"
+    :value="val"
+    :maxlength="10"
+    @change="onChange"
+    @input="onChange"
+    class="custom-input mt-2"
+    :class="{'show-result': showResult}">
+  </input>
+  <div v-if="showResult" class="showdate"><span v-if="isValid">{{result}}</span></div>
+  <v-dialog v-if="showPicker" v-model="dialog">
+    <v-btn icon slot="activator" class="grey--text">
+      <v-icon class="date-input-icon">date_range</v-icon>
+    </v-btn>
+    <v-date-picker v-model="dateVal" scrollable light locale="fr-FR" first-day-of-week="1">
+      <template scope-scope="{ save }">
+        <my-buttons-container>
+          <my-button @click="closeDialog()">OK</my-button>
+        </my-buttons-container>
+      </template>
+    </v-date-picker>
+  </v-dialog>
+</div>

@@ -1,0 +1,26 @@
+<GraphMutationForm @success="formSaved" :mutation="mutation" :variables="variables" :form="form">
+    <template slot-scope="props">
+      <div class="main-container">
+        <div class="container-full">
+  
+          <my-form-field
+            v-model="form.email"
+            type="email"
+            label="e-mail"
+            :errors="props.errors.email">
+          </my-form-field>
+
+          <my-form-field
+            v-model="form.password"
+            type="password"
+            help-text="mon help-text"
+            label="mot de passe"
+            :errors="props.errors.password">
+          </my-form-field>
+  
+          <my-button @click="forget" text="Forget"></my-button>
+          <my-button type="submit" text="Enregistrer"></my-button>
+        </div>
+      </div>
+    </template>
+  </GraphMutationForm>

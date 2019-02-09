@@ -1,0 +1,16 @@
+/* general */
+table.table tbody tr:hover {background: rgb(251, 252, 255) !important;} // hover on tr in all table
+
+/* transition time */
+$transition10: 0.1s;
+$transition20: 0.2s;
+$transition30: 0.3s;
+$transition40: 0.4s;
+$transition50: 0.5s;
+$transition60: 0.6s;
+$transition70: 0.7s;
+$transition80: 0.8s;
+$transition90: 0.9s;
+
+$mouseOver: pointer;
+$displayNone: none;

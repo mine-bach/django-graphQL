@@ -1,0 +1,15 @@
+@import 'src/styles/main.scss';
+
+.html-editor-component {
+  .ql-editor {
+    height: 375px;
+  }
+  .ql-editor p {
+    padding: 0 20px 12px;
+  }
+  .ql-video {
+    width: calc(100% - 20px);
+    margin: 10px;
+    height: 340px;
+  }
+}

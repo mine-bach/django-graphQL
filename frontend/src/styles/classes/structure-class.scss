@@ -1,0 +1,187 @@
+@import 'src/styles/assets/mixin.scss';
+@import 'src/styles/assets/structure.scss';
+/* flex class for general structure*/
+
+.flex {
+  @include flex();
+}
+
+.flex-row {
+  @include flexDirection(horizontal, normal, row);
+}
+
+.flex-column {
+  @include flexDirection(vertical, normal, column);
+}
+
+.flex-wrap {
+  @include flexWrap(wrap);
+}
+
+.flex-no-wrap {
+  @include flexWrap(nowrap);
+}
+
+.justify-center {
+  @include flexJustify(center, center);
+}
+
+.justify-between {
+  @include flexJustify(justify, space-between)
+}
+
+.justify-around {
+  @include flexJustify(justify, space-around)
+}
+
+.justify-start {
+  @include flexJustify(left, flex-start)
+}
+
+.justify-end {
+  @include flexJustify(right, flex-end)
+}
+
+.align-start {
+  @include flexAlign(flex-start);
+}
+
+.align-center {
+  @include flexAlign(center);
+}
+
+.align-end {
+  @include flexAlign(flex-end);
+}
+
+/* define width of elements*/
+
+.one-column {
+  width: $width100 !important;
+}
+
+.two-column {
+  width: $width50 !important;
+}
+
+.three-column {
+  width: $width33 !important;
+}
+
+.four-column {
+  width: $width25 !important;
+}
+
+.five-column {
+  width: $width20 !important;
+}
+
+.six-column {
+  width: $width15 !important;
+}
+
+.ten-column {
+  width: $width10 !important;
+}
+
+/* positionning */
+
+.absolute {
+  position: $absolute !important;
+}
+
+.relative {
+  position: $relative !important;
+}
+
+.fixed {
+  position: $fixed !important;
+}
+
+/* general container */
+
+.main-container {
+  @include flex();
+  @include flexWrap(wrap);
+  width: $width100;
+  overflow: visible;
+}
+
+.container-full {
+  @extend %container;
+  width: $width100;
+}
+
+.container-half {
+  @extend %container;
+  width: $width50;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.container-actions {
+  &.container-full {
+    @include flexDirection(horizontal, normal, row);
+    @extend .flex-wrap;
+    justify-content: flex-end;
+  }
+  @include flex();
+  @include flexDirection(horizontal, normal, row);
+  @include flexAlign(flex-start);
+  @include flexJustify(start, flex-start)
+}
+
+.container-center-form {
+  width: 600px;
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+/*
+
+fonctionnement des éléments de structure.
+-----------------------------------------------------
+
+règle numéro 1 :
+----------------
+* Tout container(half ou full) doit se trouver dans un élément avec une classe main-container.
+Parce que le main container possède la propriété flex-wrap qui
+permet le retour à ligne des éléments quand il dépasse la taille du main-container (par exemple
+deux container-full(width:100%;)=200% donc retour à la ligne)
+
+EXEMPLE :
+|| <div class="main-container">
+|| <div class="container-half"></div>
+|| </div>
+
+
+règle numéro 2 :
+----------------
+* Comme dit plus haut tout container(half ou full) doit se trouver dans un élément avec une classe main-container,
+cela implique lorsque plusieurs containers s'imbriquent les uns dans les autres.
+
+EXEMPLE :
+|| <div class="main-container">
+|| <div class="container-full">
+|| <div class="main-container">
+|| <div class="container-half"></div>
+|| <div class="container-half"></div>
+|| </div>
+|| </div>
+|| </div>
+
+règle numéro 3 :
+----------------
+* Ne pas modifier les classes suivantes directement : ".main-container, .container-full, .container-half "
+La modification de ces classes dans les .src/styles, modifiera le comportement général et au
+responsive d'absolument toute la structure.
+Ces classes sont assez versatiles pour s'adapter à notre solution et ne doivent être modifier que sur
+les composants nécéssitant cette modifications.
+
+*/

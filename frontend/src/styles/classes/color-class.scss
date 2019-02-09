@@ -1,0 +1,36 @@
+@import 'src/styles/assets/color.scss';
+
+/***********************************/
+/* color class (use for font color */
+/***********************************/
+
+.white-color {color: $white !important;}
+.black-color {color: $black !important;}
+.yellow-color {color: $yellow !important;}
+.orange-color {color: $orange !important;}
+.lightblue-color {color: $lightblue !important;}
+.blue-color {color: $blue !important;}
+
+
+/*************************************/
+/* color class (use for backgrounds) */
+/*************************************/
+
+.white-bgcolor {background: $white !important;}
+.black-bgcolor {background: $black !important;}
+.yellow-bgcolor {background: $yellow !important;}
+.orange-bgcolor {background: $orange !important;}
+.lightblue-bgcolor {background: $lightblue !important;}
+.blue-bgcolor {background: $blue !important;}
+
+
+/*************************************/
+/* color class (use for border) */
+/*************************************/
+
+.white-bordercolor {border: $white !important;}
+.black-bordercolor {border: $black !important;}
+.yellow-bordercolor {border: $yellow !important;}
+.orange-bordercolor {border: $orange !important;}
+.lightblue-bordercolor {border: $lightblue !important;}
+.blue-bordercolor {border: $blue !important;}

@@ -1,0 +1,4 @@
+<form @submit.prevent="onSubmit">
+  <slot name="alert"></slot>
+  <slot :errors="rules" :is-valid="isValid"></slot>
+</form>

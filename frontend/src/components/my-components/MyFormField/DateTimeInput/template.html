@@ -1,0 +1,40 @@
+<div class="main-container date-time-input-component">
+  <div class="container-half date-picker-container flex flex-row align-center">
+    <input
+      type="text"
+      :required="required"
+      :disabled="disabled"
+      :name="name"
+      placeholder="JJ/MM/AAAA"
+      :value="date"
+      @input="inputDateChanged"
+      :maxlength="10"
+      class="custom-input mt-2">
+    </input>
+    <v-dialog v-if="showPicker" v-model="dialog">
+      <v-btn icon slot="activator" class="grey--text">
+        <v-icon class="datetime-input-icon">date_range</v-icon>
+      </v-btn>
+      <v-date-picker :value="pickerDate" @input="datePicked" scrollable locale="fr-FR" first-day-of-week="1">
+        <template scope-scope="{ save }">
+          <my-buttons-container>
+            <my-button @click="closeDialog()">OK</my-button>
+          </my-buttons-container>
+        </template>
+      </v-date-picker>
+    </v-dialog>
+  </div>
+  <div class="container-half flex flex-row align-center">
+    <input
+    type="text"
+    ref="time"
+    :required="required"
+    :disabled="disabled"
+    placeholder="00:00"
+    :value="time"
+    @input="timeChanged"
+    :maxlength="5"
+    class="custom-input mt-2">
+  </input>
+  </div>
+</div>

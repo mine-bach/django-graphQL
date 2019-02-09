@@ -1,0 +1,18 @@
+<my-button class="my-confirm-button-component" :disabled="disabled"
+  @click.native.stop="dialog=true" >
+  <slot></slot>
+  <v-dialog v-model="dialog" persistent max-width="700" contentClass="white confirm-btn-card">
+    <v-card-text class="pastel-dark-blue-grey-color">
+      <slot name="content">
+        <span v-html="innerConfirmText"></span>
+      </slot>
+    </v-card-text>
+    <my-buttons-container>
+      <v-spacer></v-spacer>
+      <my-button @click.native="cancelButtonClicked">{{innerCancelButtonLabel}}</my-button>
+      <my-button v-if="!cancelOnly"
+      :disabled="confirmButtonDisabled"
+      @click.native="confirmButtonClicked">{{innerConfirmButtonLabel}}</my-button>
+    </my-buttons-container>
+  </v-dialog>
+</my-button>

@@ -1,0 +1,60 @@
+@import 'src/styles/main.scss';
+.my-buttons-container-component {
+  .my-button-element {
+    transition: 0.3s;
+    ;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .my-buttons-container-component {
+    &.container-actions {
+      &.odd-nb-actions {
+        &.container-full {
+          justify-content: flex-end !important;
+        }
+        justify-content: center !important;
+        max-width: 580px;
+        margin: 0 auto;
+        padding: 12px !important;
+        .btn {
+          font-size: 14px !important;
+          height: 45px;
+          min-width: calc(50% - 16px) !important;
+          padding: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .my-buttons-container-component {
+    .my-button-element {
+      min-width: 100% !important;
+      padding: 10px;
+    }
+    &.container-actions {
+      &.odd-nb-actions {
+        &.container-full {
+          padding: 10px !important;
+        }
+        .btn {
+          min-width: calc(100% - 16px) !important;
+        }
+      }
+      &.even-nb-actions {
+        &.container-full {
+          padding: 10px !important;
+        }
+        .btn {
+          min-width: calc(100% - 16px) !important;
+        }
+      }
+    }
+  }
+}

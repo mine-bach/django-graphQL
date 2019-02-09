@@ -1,0 +1,77 @@
+@import 'src/styles/main.scss';
+.date-time-input-component {
+  &.main-container {
+    .container-half {
+      padding: 0 !important;
+      .custom-input{
+        margin-top: 0 !important;
+      }
+    }
+    .container-half:first-child {
+      padding-right: 20px !important
+    }
+    .container-half:last-child {
+      padding-left: 20px !important
+    }
+  }
+}
+
+.date-picker-container {
+  position: relative;
+  .dialog__container {
+    position: absolute;
+    right: 18px;
+    top: 7px;
+    padding: 0;
+    margin: 0;
+    &:hover {
+      .btn__content {
+        &:before {
+          background: $orange !important;
+        }
+        i {
+          color: $orange !important;
+        }
+      }
+    }
+    i {
+      color: $yellow !important;
+      transition: 0.3s;
+    }
+  }
+}
+
+.datetime-input{
+  margin-top: 0;
+}-icon {
+  color: #ccc !important;
+}
+
+@media screen and (max-width: 600px) {
+  .datetime-container {
+    &.main-container {
+      .container-half {
+        width: 100% !important;
+      }
+      div.container-half:first-child {
+        padding-right: 0px !important;
+      }
+      div.container-half:last-child {
+        padding-left: 0px !important;
+      }
+    }
+  }
+  .date-time-input{
+    margin-top: 0;
+  }-component.main-container .container-half:last-child {
+    padding-left: 0 !important;
+  }
+  .date-time-input-component.main-container .container-half:first-child {
+    padding-right: 0 !important;
+  }
+  .date-picker-container {
+    .dialog__container {
+      right: 0px;
+    }
+  }
+}
